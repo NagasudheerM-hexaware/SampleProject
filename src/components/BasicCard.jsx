@@ -13,8 +13,13 @@ import { useNavigate } from "react-router-dom";
 import fetchUsers from "../utils/fetcher";
 export default function BasicCard() {
   const navigate = useNavigate();
-  const { data, status } = useQuery("users", fetchUsers);
+  const { data, status,failureCount,isSuccess,isIdle,isPreviousData } = useQuery("users", fetchUsers);
   console.log("response is: ", data);
+  console.log("status is: ", status);
+  console.log("failureCount is: ", failureCount);
+  console.log("isSuccess is: ", isSuccess);
+  console.log("isIdle is: ", isIdle);
+  console.log("isPreviousData is: ", isPreviousData);
   function getPrice(item) {
     console.log("item's price is: ", item.price);
     navigate("/payment");
